@@ -16,8 +16,6 @@ let headers = {token: userToken}
     .catch((err)=>err)
 }
 
-
-
 function getWishlist() {
     return axios.get('https://route-ecommerce.onrender.com/api/v1/wishlist',
     {headers})
@@ -31,7 +29,6 @@ async function removeWishlist(productid){
      .catch((err)=>err)
 
 }
-
 export default function WishContextProvider(props) {
     return <WishContext.Provider 
     value={{addToWish,getWishlist,removeWishlist}}>

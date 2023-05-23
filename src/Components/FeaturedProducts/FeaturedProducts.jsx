@@ -20,22 +20,34 @@ const FeaturedProducts = () => {
         getProducts()
     },[])
 
+    // async function addProductToCart(productId) {
+    //   let response = await addToCart(productId);
+    //   if (response && response.data && response.data.status === 'success') {
+    //     toast.success(response.data.message, {
+    //       duration: 1000,
+    //       className: 'text-center',
+    //       position: 'bottom-left'
+    //     });
+    //   } else {
+    //     toast.error('error')
+
+    //   }
+    // }
     async function addProductToCart(productId) {
-      let response = await addToCart(productId);
-      if(response.data.status === 'success'){
-     
-      toast.success(response.data.message,
-        {duration:1000,
-        className:"text-center",
-         position:'bottom-left'
+      try {
+        let response = await addToCart(productId);
+        if (response && response.data && response.data.status === 'success') {
+          toast.success(response.data.message, {
+            duration: 1000,
+            className: 'text-center',
+            position: 'bottom-left'
+          });
+        } else {
+          toast.error('An error occurred while adding the product to the cart.');
         }
-      )
-
-      }
-      else if (response.data.status === 'error'){
-        // toast.error('Error')
-        toast.error('This is an error!');
-
+      } catch (error) {
+        console.error('An error occurred:', error);
+        toast.error('An error occurred while adding the product to the cart.');
       }
     }
 

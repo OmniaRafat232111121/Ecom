@@ -71,10 +71,13 @@ export default function Home() {
   </Helmet>
 
   <div className='container'>
-    {isloading ? <div>
-     <h1>Loading...</h1>
-    </div>:
-    (
+      {isloading?
+      <div className='loading'>
+        <i className='fas fa-spinner fa-spin text-main fa-3x'></i>
+        </div> 
+        :<div>
+
+    
     <>
      <div className='row'>
       <div className='col-md-8 mb-4'>
@@ -110,8 +113,10 @@ export default function Home() {
       </div>
 
     </>
+
+    </div>
     
-    )}
+    }
     </div>     
         
   

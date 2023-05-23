@@ -18,6 +18,7 @@ export default function Navbar({userData, logOut}) {
         <li class="nav-item">
           <Link class="nav-link active" aria-current="page" to="/">Home</Link>
         </li>
+        
       
         <li class="nav-item">
         
@@ -25,6 +26,9 @@ export default function Navbar({userData, logOut}) {
         </li>
         <li class="nav-item">
           <Link class="nav-link" to="brands">Brands</Link> 
+        </li>
+        <li class="nav-item">
+          <Link class="nav-link" to="allorders">All orders</Link> 
         </li>
         <li class="nav-item">
           <Link  className="nav-link" to="wishlist">WishList <i className='fas fa-heart'></i></Link>

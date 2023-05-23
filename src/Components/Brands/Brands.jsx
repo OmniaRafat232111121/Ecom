@@ -21,9 +21,9 @@ const Brands = () => {
        <div className='container'>
         <div className='row'>
             {loading?<div className='loading'><i className='fas fa-spinner fa-spin text-main fa-3x'></i></div>:""}
-        {Brands.map((brand)=><div className='col-md-3'>
+            {Brands.map((brand)=><div className='col-md-3'>
             <img src={brand.image} alt={brand.name} className='w-100'/>
-            <h3 className='text-center'>{brand.name}</h3>
+            <h3 className='text-center text-second'>{brand.name}</h3>
 
             </div>)}
 

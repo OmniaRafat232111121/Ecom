@@ -10,6 +10,10 @@ import CartContextProvider from './context/CartContext';
 import { ToastContainer } from 'react-toastify';
 import WishContextProvider from './context/WishContext';
 import Wishlist from './Components/Wishlist/Wishlist';
+import Cart from './Components/Cart/Cart';
+import CheckOut from './Components/Checkout/CheckOut';
+import AllOrders from './Components/AllOrders/AllOrders';
+import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 function App() {
 
   useEffect(()=>{
@@ -47,13 +51,22 @@ function saveUserData(){
     },
     {
       path:'brands',
-      element:<Brands/>
+      element:<ProtectedRoute><Brands/></ProtectedRoute>
     },
     {
       path:'wishlist',
-      element:<Wishlist/>
+      element:<ProtectedRoute><Wishlist/></ProtectedRoute>
     },
-
+    {
+      path:'cart',
+      element:<ProtectedRoute><Cart/></ProtectedRoute>
+    },
+    {path:"checkout", 
+    element:<ProtectedRoute><CheckOut/></ProtectedRoute>
+  },
+    {path:"allorders", 
+    element:<ProtectedRoute><AllOrders/></ProtectedRoute>
+  },
     {
       path:"*", 
       element:<Home/>
