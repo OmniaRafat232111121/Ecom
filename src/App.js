@@ -16,6 +16,7 @@ import AllOrders from './Components/AllOrders/AllOrders';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 import Products from './Components/Products/Products';
 import Product from './Components/Product/Product';
+import Brand from './Components/Brand/Brand';
 function App() {
 
   useEffect(()=>{
@@ -55,6 +56,9 @@ function saveUserData(){
       path:'brands',
       element:<ProtectedRoute><Brands/></ProtectedRoute>
     },
+    {path:"/brands/brand/:brandId", 
+element:<ProtectedRoute><Brand/></ProtectedRoute>},
+
     {
       path:'wishlist',
       element:<ProtectedRoute><Wishlist/></ProtectedRoute>
