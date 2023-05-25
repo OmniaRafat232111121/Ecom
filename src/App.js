@@ -14,6 +14,8 @@ import Cart from './Components/Cart/Cart';
 import CheckOut from './Components/Checkout/CheckOut';
 import AllOrders from './Components/AllOrders/AllOrders';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
+import Products from './Components/Products/Products';
+import Product from './Components/Product/Product';
 function App() {
 
   useEffect(()=>{
@@ -66,7 +68,13 @@ function saveUserData(){
   },
     {path:"allorders", 
     element:<ProtectedRoute><AllOrders/></ProtectedRoute>
-  },
+},
+{path:"products", 
+element:<ProtectedRoute><Products/></ProtectedRoute>
+},
+{path:"products/:productId", 
+element:<ProtectedRoute><Product/></ProtectedRoute>},
+
     {
       path:"*", 
       element:<Home/>
