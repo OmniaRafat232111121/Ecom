@@ -72,13 +72,16 @@ function saveUserData(){
 {path:"products", 
 element:<ProtectedRoute><Products/></ProtectedRoute>
 },
-{path:"products/:productId", 
+{path:"product/:productId", 
 element:<ProtectedRoute><Product/></ProtectedRoute>},
+
 
     {
       path:"*", 
       element:<Home/>
     },
+
+
     
   ] }
 ])

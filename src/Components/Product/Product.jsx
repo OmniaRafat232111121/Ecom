@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 import { toast } from 'react-toastify';
 import Slider from 'react-slick';
+import axios from 'axios';
 const Product = () => {
+  const params=useParams();
     let {addToCart}=useContext(CartContext);
-    const params=useParams();
     const [loading,setLoading]=useState(false);
     const [Details,setDetails]=useState(null);
     const settings = {
@@ -17,12 +18,10 @@ const Product = () => {
         slidesToScroll: 3
       };
     async function getDetails(){
-        setLoading(true);
-        const response=await fetch(`https://route-ecommerce.onrender.com/api/v1/products/${params.productId}`);
-        const data= await response.json();
-        setDetails(data.data);
-        console.log(data.data);
-        setLoading(false);
+        setLoading(true)
+        let {data} = await axios.get(`https://route-ecommerce.onrender.com/api/v1/products/${params.productId}`)
+        setDetails(data.data)
+       setLoading(false)
     }
 
     async function addProductToCart(productId){
@@ -42,7 +41,7 @@ const Product = () => {
     <>
       <div className="container">
     {loading?<div className='loading'><i className='fas fa-spinner fa-spin text-main fa-3x'></i></div>:<>
-    <div className="row align-items-center">
+    <div  className="row align-items-center">
       <div className="col-md-4">
         <img src={Details?.imageCover} alt="" className='w-100'/>
         </div>

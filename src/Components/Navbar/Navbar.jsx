@@ -21,7 +21,6 @@ export default function Navbar({userData, logOut}) {
         
       
         <li class="nav-item">
-        
           <Link class="nav-link" to="cart">Cart</Link>
         </li>
         <li class="nav-item">
@@ -29,6 +28,9 @@ export default function Navbar({userData, logOut}) {
         </li>
         <li class="nav-item">
           <Link class="nav-link" to="allorders">All orders</Link> 
+        </li>
+        <li class="nav-item">
+          <Link class="nav-link" to="products">Products</Link>
         </li>
         <li class="nav-item">
           <Link  className="nav-link" to="wishlist">WishList <i className='fas fa-heart'></i></Link>
